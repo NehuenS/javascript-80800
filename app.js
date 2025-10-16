@@ -25,7 +25,7 @@ class Producto {
     }
 }
 const productos = [
-    new Producto(new Arma("FN", "FAL II"), 415000),
+    new Producto(new Arma("FN", "FAL IV"), 415000),
     new Producto(new Arma("19", "Glock"), 280000),
     new Producto(new Arma("Thunder 9", "Bersa"), 210000),
     new Producto(new Accesorio("Cilindro CO2 x Unidad"), 1500),
@@ -57,18 +57,25 @@ function total(carrito) {
     return total;
 }
 let carrito = [];
-alert("Bienvenido a La Reglamentaria Airsoft");
+// alert("Bienvenido a La Reglamentaria Airsoft");
 let precio = 0;
-while (true) {
-    index = prompt(listarProductos(productos)) - 1;
-    if (index == -1) {
-        break;
-    }
-    if (typeof productos[index] === 'undefined') {
-        alert("Número inválido.");
-        continue;
-    }
-    carrito.push(productos[index]);
-    alert(listarCarrito(carrito));
-}
-alert(`Su total es: $${total(carrito)}\nGracias por su compra.`);
+// while (true) {
+//     index = prompt(listarProductos(productos)) - 1;
+//     if (index == -1) {
+//         break;
+//     }
+//     if (typeof productos[index] === 'undefined') {
+//         alert("Número inválido.");
+//         continue;
+//     }
+//     carrito.push(productos[index]);
+//     alert(listarCarrito(carrito));
+// }
+// alert(`Su total es: $${total(carrito)}\nGracias por su compra.`);
+let logo = document.getElementById("logoImg");
+logo.addEventListener("mouseover", function () {
+    logo.setAttribute("src", "./img/logo_hover.png")
+})
+logo.addEventListener("mouseout", function () {
+    logo.setAttribute("src", "./img/logo.png")
+})
