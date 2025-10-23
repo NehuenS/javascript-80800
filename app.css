@@ -1,34 +1,46 @@
+html {
+    --bg-color-body: oklch(94.176% 0.06065 90.798);
+    --bg-color-header: oklch(39.3% 0.095 152.535);
+    --color-text-link: oklch(82.8% 0.189 84.429);
+    --color-text-link-hover: oklch(76.9% 0.188 70.08);
+}
+
 body {
     max-width: 100%;
     margin: 0;
+    background-color: var(--bg-color-body)
+}
+
+#title {
+    text-align: center;
 }
 
 header {
-    background-color: oklch(39.3% 0.095 152.535);
+    background-color: var(--bg-color-header);
     position: sticky;
     top: 0;
     left: 0;
     max-width: 100%;
 }
 
-header ul {
-    display: flex;
+a {
+    color: var(--color-text-link);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-text-link-hover);
+}
+
+#menuList {
+    display: inline-flex;
     gap: 1rem;
-    align-items: baseline;
     font-size: 1.75rem;
     line-height: 1.8;
 }
 
-header ul li {
+#menuList li {
     list-style: none;
-}
-
-header ul li a {
-    color: oklch(82.8% 0.189 84.429);
-}
-
-header ul li a:hover {
-    color: oklch(76.9% 0.188 70.08);
 }
 
 header nav {
@@ -45,16 +57,38 @@ header nav {
 }
 
 #logoImg {
-    vertical-align: middle;
     object-fit: scale-down;
-    left: 0;
 }
 
 #menuImg {
-    vertical-align: middle;
     max-width: 10%;
-    right: 0;
     display: none;
+}
+
+#listaProductos {
+    width: 100%;
+    gap: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.cardProducto {
+    width: calc(33% - 0.5rem - 6%);
+    border-radius: 6%;
+    padding: 3%;
+    background-color: white;
+    text-align: center;
+}
+
+.cardProducto .bloqueAgregar {
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.cardProducto .minus.enCero {
+    visibility: hidden;
 }
 
 @media screen and (max-width: 767px) {
@@ -64,19 +98,19 @@ header nav {
         max-width: 100%;
     }
 
-    header ul {
+    #menuList {
         flex-direction: column;
         text-align: center;
-        max-width: 100%
+        max-width: 100%;
+        display: none;
+        background-color: var(--bg-color-header);
     }
 
-    header ul li a {
+    #menuList li a {
         text-align: right;
-
     }
 
     #logoHeader {
-        display: inline-flex;
         max-width: 100%;
         justify-content: space-between;
     }
@@ -86,10 +120,13 @@ header nav {
     }
 
     #menuImg {
-        vertical-align: middle;
-        max-width: 10%;
-        right: 0;
-        display: inline-flex;
+        max-width: 100%;
+        height: 4rem;
+        width: 4rem;
+        display: inline;
+        object-fit: scale-down;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
     }
 }
 
@@ -100,5 +137,12 @@ header nav {
 
     #logoImg {
         height: 4rem;
+    }
+
+    #menuImg {
+        height: 3.5rem;
+        width: 3.5rem;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
     }
 }

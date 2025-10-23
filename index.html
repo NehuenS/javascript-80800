@@ -15,15 +15,35 @@
         <img id="logoImg" src="./img/logo.png" alt="Logo de La Reglamentaria">
         <img id="menuImg" src="./img/menu.png" alt="Icono de menu">
       </div>
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Ofertas</a></li>
-        <li><a href="#">Armas</a></li>
-        <li><a href="#">Accesorios</a></li>
+      <ul id="menuList">
+        <li><a id="linkInicio">Inicio</a></li>
+        <li><a id="linkArmas">Armas</a></li>
+        <li><a id="linkAccesorios">Accesorios</a></li>
       </ul>
     </nav>
   </header>
+  <main>
+    <h1 id="title">
+      Nuestros Productos
+    </h1>
+    <section id="listaProductos">
+      <div class="cardProducto">
+        <img src="./img/productos/" alt="Foto de ${nombre()}">
+        <hr>
+        <div class="bloqueAgregar">
+          <button class="minus" type="button">
+            -
+          </button>
+          <span class="counter">0</span>
+          <button class="plus" type="button">
+            +
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
   <footer>
+
     <script src="./app.js"></script>
   </footer>
 
