@@ -29,13 +29,10 @@ class Producto {
     }
 }
 const productos = [
-    new Producto(new Arma("FN", "FAL IV"), 415000),
-    new Producto(new Arma("19", "Glock"), 280000),
-    new Producto(new Arma("Thunder 9", "Bersa"), 210000),
-    new Producto(new Accesorio("Cilindro CO2 x Unidad"), 1500),
-    new Producto(new Accesorio("Balines de PVC Blancos x 2000U"), 12000),
-    new Producto(new Accesorio("Balines de PVC Fluorescentes x 2000U"), 12000),
-    new Producto(new Accesorio("Cilindro CO2 x Unidad"), 1500),
+    new Producto(new Arma("FN", "FAL IV"), 415000, "FN_FAL.jpeg"),
+    new Producto(new Arma("19", "Glock"), 280000, "Glock19.jpeg"),
+    new Producto(new Arma("Thunder 9", "Bersa"), 210000, "BersaThun9.jpeg"),
+    new Producto(new Accesorio("Cilindro CO2 x Unidad"), 1500, "Cil_CO2.webp"),
     new Producto(new Accesorio("Balines de PVC Blancos x 2000U"), 12000, "BB2000.png"),
     new Producto(new Accesorio("Balines de PVC Fluorescentes x 2000U"), 12000, "BL2000.webp")
 ]
@@ -59,20 +56,23 @@ function listarProductos(listaProductos, elementId) {
     for (const item of listaProductos) {
         retorno = `${retorno}
         <div class="cardProducto">
-            <div>
+            <div class="bloqueFoto">
                 <img src="./img/productos/${item.foto}" alt="Foto de ${item.nombre()}">
             </div>
             <h4>${item.nombre()}<h4>
             <h4>$ ${item.precio}</h4>
             <hr>
             <div class="bloqueAgregar" data-item=${JSON.stringify(item)}>
-                <button class="minus" type="button">-</button>
+                <button class="minus enCero" type="button">-</button>
                 <span class="counter">0</span>
                 <button class="plus" type="button">+</button>
             </div>
         </div>`;
     }
     panel.innerHTML = retorno;
+}
+function cargarVista(tipo) {
+    listarProductos(filtrarProductos(productos, tipo), "listaProductos");
 }
 function listarCarrito(carrito) {
     let retorno = "Productos en el carrito:";
@@ -91,25 +91,9 @@ function total(carrito) {
     return total;
 }
 let carrito = [];
-// alert("Bienvenido a La Reglamentaria Airsoft");
 let precio = 0;
-let filtrados = filtrarProductos(productos, "Armas");
-console.log(filtrados);
-listarProductos(filtrados, "listaProductos");
-// listarProductos(productos, "listaProductos");
-// while (true) {
-//     index = prompt(listarProductos(productos)) - 1;
-//     if (index == -1) {
-//         break;
-//     }
-//     if (typeof productos[index] === 'undefined') {
-//         alert("Número inválido.");
-//         continue;
-//     }
-//     carrito.push(productos[index]);
-//     alert(listarCarrito(carrito));
-// }
-// alert(`Su total es: $${total(carrito)}\nGracias por su compra.`);
+cargarVista();
+
 let logo = document.getElementById("logoImg");
 logo.addEventListener("mouseover", function () {
     logo.setAttribute("src", "./img/logo_hover.png")
@@ -124,9 +108,8 @@ menu.addEventListener("mouseover", function () {
 menu.addEventListener("mouseout", function () {
     menu.setAttribute("src", "./img/menu.png")
 });
-let linkInicio = document.getElementById("linkInicio");
-linkInicio.addEventListener("click", function () {
-
-});
-let linkArmas = document.getElementById("linkArmas");
-let linkAccesorios = document.getElementById("linkAccesorios");
+for (const a of document.getElementsByClassName("menuLink")) {
+    a.addEventListener("click", function () {
+        cargarVista(a.dataset.link);
+    });
+}
