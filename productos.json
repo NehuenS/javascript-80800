@@ -1,0 +1,65 @@
+[
+    {
+        "id": "00000001",
+        "producto": {
+            "tipo": "Arma",
+            "detalle": {
+                "modelo": "FN",
+                "fabricante": "FAL IV"
+            },
+            "precio": 415000
+        }
+    },
+    {
+        "id": "00000002",
+        "producto": {
+            "tipo": "Arma",
+            "detalle": {
+                "modelo": "19",
+                "fabricante": "Glock"
+            },
+            "precio": 280000
+        }
+    },
+    {
+        "id": "00000003",
+        "producto": {
+            "tipo": "Arma",
+            "detalle": {
+                "modelo": "Thunder 9",
+                "fabricante": "Bersa"
+            },
+            "precio": 210000
+        }
+    },
+    {
+        "id": "00000004",
+        "producto": {
+            "tipo": "Arma",
+            "detalle": {
+                "accesorio": "Cilindro CO2 x Unidad"
+            },
+            "precio": 1500
+        }
+    },
+    {
+        "id": "00000005",
+        "producto": {
+            "tipo": "Arma",
+            "detalle": {
+                "accesorio": "Balines de PVC Blancos x 2000U"
+            },
+            "precio": 12000
+        }
+    },
+    {
+        "id": "00000006",
+        "producto": {
+            "tipo": "Arma",
+            "detalle": {
+                "accesorio": "Balines de PVC Fluorescentes x 2000U"
+            },
+            "precio": 12000
+        }
+    }
+]
