@@ -17,23 +17,27 @@
       </div>
       <ul id="menuList">
         <li><a class="menuLink" data-title="Nuestros Productos" data-link="Inicio">Inicio</a></li>
-        <li><a class="menuLink" data-title="Nuestras Armas" data-link="Armas">Armas</a></li>
-        <li><a class="menuLink" data-title="Nuestros Accesorios" data-link="Accesorios">Accesorios</a></li>
       </ul>
     </nav>
   </header>
   <main>
     <h1 id="title">
-      Nuestros Productos
+      Carrito de Compras
     </h1>
-    <section id="listaProductos">
+    <section id="carrito">
+      <div id="listaCarrito"></div>
+      <div id="columnaCarrito">
+        <h3>Detalle:</h3>
+        <ul id="resumenCarrito"></ul>
+        <hr>
+        <h3 id="total">Total: $0</h3>
+        <button type="button" id="comprar">Comprar</button>
+      </div>
     </section>
-    <button title="Ver el Carrito" type="button" id="botonCarrito">
-      <img src="./img/carrito.jpg" alt="Carrito de Compras">
-    </button>
   </main>
   <footer>
-    <script type="module" src="./assets/js/mainPage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./assets/js/checkout.js"></script>
   </footer>
 
 </body>

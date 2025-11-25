@@ -73,7 +73,7 @@ header nav {
     justify-content: space-around;
 }
 
-.cardProducto {
+#listaProductos .cardProducto {
     width: calc(33% - 0.5rem - 6%);
     border-radius: 6%;
     padding: 3%;
@@ -82,26 +82,95 @@ header nav {
     align-items: baseline;
 }
 
-.cardProducto .bloqueAgregar {
+#listaProductos .cardProducto .bloqueContador {
     display: inline-flex;
     justify-content: space-evenly;
     width: 100%;
 }
 
-.cardProducto .bloqueFoto {
+#listaProductos .cardProducto .bloqueFoto {
     display: block;
     width: 100%;
     align-self: normal;
 }
 
-.cardProducto .bloqueFoto img {
+#listaProductos .cardProducto .bloqueFoto img {
     object-fit: scale-down;
     max-width: 100%;
     max-height: 12rem;
 }
 
-.cardProducto .bloqueAgregar .minus.enCero {
+#listaProductos .cardProducto .bloqueContador .minus.enCero {
     visibility: hidden;
+}
+
+#carrito {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 1rem;
+}
+
+#carrito #listaCarrito {
+    grid-column: span 2 / span 2;
+    gap: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+#carrito #columnaCarrito {
+    grid-column-start: 3;
+    background-color: white;
+    padding: 3%;
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+
+#carrito #columnaCarrito #resumenCarrito {
+    list-style: ">";
+}
+
+#carrito #listaCarrito .cardProducto {
+    width: calc(50% - 0.5rem - 6%);
+    border-radius: 6%;
+    padding: 3%;
+    background-color: white;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+#carrito #listaCarrito .cardProducto .bloqueContador {
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+#carrito #listaCarrito .cardProducto .bloqueFoto {
+    display: block;
+    width: 100%;
+    align-self: normal;
+}
+
+#carrito #listaCarrito .cardProducto .bloqueFoto img {
+    object-fit: scale-down;
+    max-width: 100%;
+    max-height: 12rem;
+}
+
+#botonCarrito {
+    max-width: 4rem;
+    max-height: 4rem;
+    border-radius: 50%;
+    border: 0 none white;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+#botonCarrito img {
+    max-width: 4rem;
+    max-height: 4rem;
+    border-radius: 50%;
 }
 
 @media screen and (max-width: 767px) {
@@ -157,5 +226,17 @@ header nav {
         width: 3.5rem;
         margin-top: 0.25rem;
         margin-bottom: 0.25rem;
+    }
+
+    #botonCarrito {
+        max-width: 2.5rem;
+        max-height: 2.5rem;
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    #botonCarrito img {
+        max-width: 2.5rem;
+        max-height: 2.5rem;
     }
 }
