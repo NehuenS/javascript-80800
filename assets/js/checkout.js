@@ -113,7 +113,7 @@ function listarProductos(listaCarrito) {
             <hr>
             <div class="bloqueContador">
                 <button class="minus enCero" id="minus${item.id}" value="${item.id}" type="button">-</button>
-                <span class="counter" id="counter${item.id}" value="${item.id}"></span>
+                <span class="counter" id="counter${item.id}" value="${item.id}">${item.cantidad}</span>
                 <button class="plus" id="plus${item.id}" value="${item.id}" type="button">+</button>
             </div>
         </div>`;
@@ -147,6 +147,7 @@ function listarProductos(listaCarrito) {
                     varCarrito.splice(indice, 1);
                 }
             }
+            listarProductos(varCarrito);
         });
     }
     for (const p of document.getElementsByClassName("plus")) {
@@ -161,30 +162,30 @@ function listarProductos(listaCarrito) {
             if (!existe) {
                 varCarrito.push(new ItemEnCarrito(p.value, 1));
             }
+            listarProductos(varCarrito);
         });
     }
 }
+
 listarProductos(varCarrito);
 document.getElementById("comprar").addEventListener("click", function () {
-    new swal(
-        {
-            title: "¿Ir a Pagar?",
-            icon: "info",
-            buttons: {
-                cancel: "No",
-                confirmar: "Si"
-            },
-            dangerMode: true,
+    Swal.fire({
+        title: "¿Ir a Pagar?",
+        icon: "info",
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText: "Si",
+        cancelButtonText: "No",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                html: "No hay pasarela de pago. Por favor, imagine el proceso de pago",
+                icon: "success",
+            }).then(
+                window.location = "./index.html"
+            );
+            localStorage.removeItem("carrito");
         }
-    ).then(
-        (confirmar) => {
-            if (confirmar) {
-                new swal("No hay pasarela de pago. Por favor, imagine el proceso de pago", {
-                    icon: "success",
-                });
-                localStorage.removeItem("carrito");
-                window.location = "./index.html";
-            }
-        }
-    );
+    });
 })
